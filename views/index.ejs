@@ -25,6 +25,11 @@
       />
       <input type="submit" value="Add Task" id="taskButton" />​
     </form>
+    <ul>
+      <% tasks.forEach(task => { %>
+      <li><%= task %></li>
+      <% }) %>
+    </ul>
     
   </body>
 </html>
