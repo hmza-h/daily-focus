@@ -1,19 +1,127 @@
-#header{
+/* ==========================================
+   1. GLOBAL CANVAS & CENTERING ENGINE
+   ========================================== */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Rubik', sans-serif;
+    /* Clean futuristic dark-mode tech gradient */
+    background: linear-gradient(135deg, #0f0f1a, #1b1b2f); 
+    min-height: 100vh;
+    
+    /* Flexbox center locking */
     display: flex;
-    font-family: "Rubik", sans-serif;
-    font-optical-sizing: auto;
-    font-weight:bold;
-    font-style: normal;
-    padding: 20px;
-    text-align: center;
-    background-color: yellowgreen;
     justify-content: center;
     align-items: center;
 }
 
-.task{
-    display: inline-flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 20px;
+/* ==========================================
+   2. MAIN DASHBOARD CARD
+   ========================================== */
+.app-card {
+    background: #22223b; 
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); 
+    width: 100%;
+    max-width: 480px; 
+    border: 1px solid #323254;
+}
+
+#header h1 {
+    color: #ffffff;
+    font-size: 1.35rem;
+    font-weight: 800;
+    text-align: center;
+    letter-spacing: 1.5px;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #4e4e7a;
+    padding-bottom: 1rem;
+}
+
+/* ==========================================
+   3. TASK INPUT FORM INTERFACE
+   ========================================== */
+.task {
+    display: flex;
+    gap: 12px; 
+    margin-bottom: 2rem;
+}
+
+.task input[type="text"] {
+    flex: 1; 
+    padding: 14px 16px;
+    border-radius: 8px;
+    border: 1px solid #4e4e7a;
+    background-color: #121224;
+    color: #ffffff;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.task input[type="text"]:focus {
+    border-color: #7289da;
+    box-shadow: 0 0 8px rgba(114, 137, 218, 0.4);
+}
+
+#taskButton {
+    padding: 14px 22px;
+    border-radius: 8px;
+    border: none;
+    background-color: #00b894; /* High-visibility green */
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#taskButton:hover {
+    background-color: #00a383;
+}
+
+/* ==========================================
+   4. DYNAMIC LIST ROWS
+   ========================================== */
+ul {
+    list-style-type: none; 
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    background-color: #121224;
+    padding: 14px 16px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    color: #f1f1f6;
+    font-weight: 400;
+    border-left: 5px solid #7289da; /* Blue dev-accent bar */
+    word-break: break-word;
+}
+
+li form {
+    margin: 0;
+    display: flex;
+}
+
+li button {
+    background-color: #d63031; /* Tech red */
+    border: none;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: background-color 0.2s ease;
+}
+
+li button:hover {
+    background-color: #b22222;
 }

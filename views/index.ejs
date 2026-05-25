@@ -13,24 +13,27 @@
 </head>
 
 <body>
-  <div id="header">
-    <h1>DEVELOPER TASK COMMAND CENTER</h1>
-  </div>
+  <div class="app-card">
+    <div id="header">
+      <h1>DEVELOPER TASK COMMAND CENTER</h1>
+    </div>
 
-  <form class="task" action="/submit-task" method="POST">
-    <input type="text" placeholder="Enter a new task..." name="newTask" />
-    <input type="submit" value="Add Task" id="taskButton" />​
-  </form>
-  <ul>
-    <% tasks.forEach((task, index)=> { %>
-      <li>
-        <%= task %>
-          <form action="/delete/<%= index %>" method="POST">
-            <button type="submit">Delete</button>
-          </form>
-          <% }) %>
-      </li>
-  </ul>
+    <form class="task" action="/submit-task" method="POST">
+      <input type="text" placeholder="Enter a new task..." name="newTask" />
+      <input type="submit" value="Add Task" id="taskButton" />​
+    </form>
+    <ul>
+      <% tasks.forEach((task, index)=> { %>
+        <li>
+          <%= task %>
+            <form action="/delete/<%= index %>" method="POST">
+              <button type="submit">Delete</button>
+            </form>
+        </li>
+        <% }) %>
+    </ul>
+
+  </div>
 
 </body>
 
