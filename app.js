@@ -27,3 +27,8 @@ app.post("/submit-task", (req, res) => {
     taskList.push(req.body.newTask);
     res.redirect("/");
 });
+
+app.post("/delete/:id", (req, res) => {
+    taskList.splice(req.params.id, 1);
+    res.redirect("/");
+});
