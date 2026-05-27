@@ -25,7 +25,7 @@
     <ul>
       <% tasks.forEach((task, index)=> { %>
         <li>
-          <%= task %>
+          <%= task.text %>
             <form action="/delete/<%= index %>" method="POST">
               <button type="submit">Delete</button>
             </form>

@@ -24,7 +24,13 @@ app.listen(port, () => {
 })
 
 app.post("/submit-task", (req, res) => {
-    taskList.push(req.body.newTask);
+    if (req.body.newTask) {
+        const newTaskObject = {
+            text: req.body.newTask,
+            priority: "none"
+        };
+        taskList.push(req.body.newTask);
+    }
     res.redirect("/");
 });
 
