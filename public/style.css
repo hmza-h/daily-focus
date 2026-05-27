@@ -125,3 +125,62 @@ li button {
 li button:hover {
     background-color: #b22222;
 }
+
+.task-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.priority-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.priority-trigger {
+    background: #4e4e7a;
+    color: #ffffff;
+    border: 1px solid #6a6aa8;
+    border-radius: 6px;
+    padding: 8px 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: calc(100% + 6px);
+    background: #121224;
+    border: 1px solid #4e4e7a;
+    border-radius: 8px;
+    padding: 6px;
+    min-width: 130px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+    z-index: 10;
+}
+
+.priority-dropdown:hover .dropdown-content,
+.priority-dropdown:focus-within .dropdown-content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.dropdown-content form {
+    width: 100%;
+}
+
+.dropdown-content button {
+    width: 100%;
+    text-align: left;
+    background: #1d223b;
+    color: #ffffff;
+    border-radius: 6px;
+}
+
+.dropdown-content button:hover {
+    background: #2c3554;
+}

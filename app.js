@@ -29,12 +29,21 @@ app.post("/submit-task", (req, res) => {
             text: req.body.newTask,
             priority: "none"
         };
-        taskList.push(req.body.newTask);
+        taskList.push(newTaskObject);
     }
     res.redirect("/");
 });
 
 app.post("/delete/:id", (req, res) => {
     taskList.splice(req.params.id, 1);
+    res.redirect("/");
+});
+
+app.post("/update-priority/:id", (req, res) => {
+    const targetIndex = req.params.id;
+    const newPriority = req.query.level;
+    if (taskList[targetIndex]) {
+        taskList[targetIndex].priority = newPriority;
+    }
     res.redirect("/");
 });

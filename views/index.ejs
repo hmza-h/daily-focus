@@ -19,18 +19,43 @@
     </div>
 
     <form class="task" action="/submit-task" method="POST">
-      <input type="text" placeholder="Enter a new task..." name="newTask" />
-      <input type="submit" value="Add Task" id="taskButton" />​
+      <input type="text" placeholder="Enter a new task..." name="newTask" required />
+      <button type="submit" id="taskButton">Add Task</button>
     </form>
     <ul>
       <% tasks.forEach((task, index)=> { %>
-        <li>
-          <%= task.text %>
-            <form action="/delete/<%= index %>" method="POST">
-              <button type="submit">Delete</button>
-            </form>
-        </li>
-        <% }) %>
+        <% if (task && task.text) { %>
+          <li class="priority-<%= task.priority || 'none' %>">
+
+            <span class="task-text">
+              <%= task.text %>
+            </span>
+
+            <div class="task-actions">
+              <div class="priority-dropdown">
+                <% const priorityLabel = task.priority === 'high' ? '🔴 High' : task.priority === 'medium' ? '🟡 Medium' : task.priority === 'low' ? '🔵 Low' : 'Priority'; %>
+                <button class="priority-trigger" type="button"><%= priorityLabel %></button>
+                <div class="dropdown-content">
+                  <form action="/update-priority/<%= index %>?level=high" method="POST">
+                    <button type="submit" class="btn-high">🔴 High</button>
+                  </form>
+                  <form action="/update-priority/<%= index %>?level=medium" method="POST">
+                    <button type="submit" class="btn-medium">🟡 Medium</button>
+                  </form>
+                  <form action="/update-priority/<%= index %>?level=low" method="POST">
+                    <button type="submit" class="btn-low">🔵 Low</button>
+                  </form>
+                </div>
+              </div>
+
+              <form action="/delete/<%= index %>" method="POST">
+                <button type="submit" class="delete-btn">Delete</button>
+              </form>
+            </div>
+
+          </li>
+          <% } %>
+            <% }) %>
     </ul>
 
   </div>
